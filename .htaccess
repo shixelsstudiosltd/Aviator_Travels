@@ -1,0 +1,28 @@
+RewriteEngine On
+DirectoryIndex avaitorindex.php
+#ErrorDocument 404 /404page.html
+#RewriteBase /new_aviator
+#RewriteBase /demos/aviator_travels
+#RewriteBase /home/shixels/public_html/demos/aviator_travels
+RewriteBase /
+
+
+# Mod Rewrite
+Options +FollowSymLinks
+Options -MultiViews
+
+#RewriteRule sitemap\.xml pee_sitemap.php [L]
+
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+#
+#RewriteCond %{HTTPS} on
+#RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . avaitorindex.php?page=$1&var=$2 [NC,L] 
+
